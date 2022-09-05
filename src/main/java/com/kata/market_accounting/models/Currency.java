@@ -13,7 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "currencies")
 @Getter
 @Setter
 @ToString
@@ -26,7 +26,7 @@ public class Currency {
     private Long id;
 
     @Column(name = "is_accounting")
-    private boolean isAccounting; //является ли валютой учета
+    private Boolean isAccounting; //является ли валютой учета
 
     @NonNull
     @Column(name = "short_name")
