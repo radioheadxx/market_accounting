@@ -37,12 +37,12 @@ public class Currency {
     private String fullName;
 
     @Column(name = "digital_code")
-    private short digitalCode;
+    private String digitalCode;
 
     @NonNull
     @Column(name = "letter_code")
     private String letterCode; // буквенный код
 
     @Column(name = "exchange_rate")
-    private double exchangeRate; // курс
+    private Double exchangeRate; // курс
 }
