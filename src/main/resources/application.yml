@@ -1,2 +1,17 @@
 server:
   port: 8601
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    # имя базы данных - postgres
+    url: jdbc:postgresql://localhost/market
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
