@@ -2,6 +2,8 @@ package com.kata.market_accounting.models;
 
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "country")
 @Data

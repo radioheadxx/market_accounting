@@ -2,13 +2,8 @@ package com.kata.market_accounting.models.dto;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 @Data
-public class DTOProjects {
+public class ProjectsDTO {
 
     private Long id;
 
