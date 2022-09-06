@@ -19,20 +19,14 @@ public class Projects {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "short_name")
-    private String shortName;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "full_name")
-    private String fullName;
+    @Column(name = "code")
+    private Long code;
 
-    @Column(name = "digital_code")
-    private byte digitalCode;
-
-    @Column(name = "letter_code1")
-    private String letterCode1;
-
-    @Column(name = "letter_code2")
-    private String letterCode2;
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "access")
     private boolean access;
