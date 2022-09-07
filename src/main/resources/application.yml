@@ -1,6 +1,9 @@
 server:
   port: 8601
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   jpa:
     database: POSTGRESQL
     show-sql: true
