@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 @Service
 public class CurrencyServiceImpl implements CurrencyService {
     private final CurrencyRepository currencyRepo;
@@ -19,7 +20,6 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    @Transactional
     public void create(Currency currency){
         currencyRepo.save(currency);
     }
@@ -36,13 +36,11 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    @Transactional
     public void update(Currency currency) {
         currencyRepo.save(currency);
     }
 
     @Override
-    @Transactional
     public void delete(Long id) {
         currencyRepo.deleteById(id);
     }
