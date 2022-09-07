@@ -4,6 +4,11 @@ import com.kata.market_accounting.models.SaleChannel;
 import com.kata.market_accounting.services.SaleChannelService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,32 +32,56 @@ public class SaleChannelRestController {
     }
 
     @GetMapping
-    @ApiOperation("Get list of sale channels")
-    public List<SaleChannel> listSaleChannels() {
-        return saleChannelService.listSaleChannels();
+    @ApiOperation(value = "Get list of sale channels",
+            notes = "Returns a full list of sale channels from the database")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully retrieved")
+    })
+    public ResponseEntity<List<SaleChannel>> listSaleChannels() {
+        return ResponseEntity.ok(saleChannelService.listSaleChannels());
     }
 
     @GetMapping("/{id}")
-    @ApiOperation("Get single sale channel by ID")
-    public SaleChannel getSaleChannel(@PathVariable("id") Long id) {
-        return saleChannelService.getSaleChannel(id);
+    @ApiOperation(value = "Get single sale channel by ID",
+            notes = "Returns a sale channel by ID")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully retrieved")
+    })
+    public ResponseEntity<SaleChannel> getSaleChannel(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(saleChannelService.getSaleChannel(id));
     }
 
     @PostMapping
-    @ApiOperation("Create sale channel")
-    void createSaleChannel(@RequestBody SaleChannel saleChannel) {
+    @ApiOperation(value = "Create sale channel",
+            notes = "Creates a new sale channel and saves it to the database")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Sale channel successfully created")
+    })
+    public ResponseEntity<Void> createSaleChannel(@RequestBody SaleChannel saleChannel) {
         saleChannelService.createSaleChannel(saleChannel);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping
-    @ApiOperation("Edit sale channel")
-    void updateSaleChannel(@RequestBody SaleChannel saleChannel) {
+    @ApiOperation(value = "Edit sale channel",
+            notes = "Allows to change existing channel in the database")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Sale channel successfully edited")
+    })
+    public ResponseEntity<Void> updateSaleChannel(@RequestBody SaleChannel saleChannel) {
         saleChannelService.updateSaleChannel(saleChannel);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation("Delete sale channel by ID")
-    void deleteSaleChannel(@PathVariable("id") Long id) {
+    @ApiOperation(value = "Delete sale channel by ID",
+            notes = "Deletes a sale channel by ID")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Sale channel successfully deleted")
+    })
+    public ResponseEntity<Void> deleteSaleChannel(@PathVariable("id") @ApiParam(
+                    name = "id", value = "Sale channel ID", example = "1") Long id) {
         saleChannelService.deleteSaleChannel(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

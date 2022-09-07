@@ -10,7 +10,6 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    # имя базы данных - postgres
     url: jdbc:postgresql://localhost/market
     username: postgres
     password: postgres
