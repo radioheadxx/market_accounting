@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-@Transactional(readOnly = true)
+
 @Service
 public class ProjectServiceImpl implements ProjectService {
 

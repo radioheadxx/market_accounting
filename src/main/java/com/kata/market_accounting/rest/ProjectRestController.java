@@ -24,25 +24,25 @@ public class ProjectRestController {
     }
 
     @GetMapping("/list")
-    public List<Project> getCountriesList() {
+    public List<Project> getProjectsList() {
         return countryService.findAll();
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Project> createCountry(@RequestBody Project project) {
+    public ResponseEntity<Project> createProject(@RequestBody Project project) {
         countryService.save(project);
         return new ResponseEntity(project, HttpStatus.CREATED);
 
     }
 
     @PutMapping("/edit")
-    public ResponseEntity<Project> editCountry(@RequestBody long id, Project project) {
+    public ResponseEntity<Project> editProject(@RequestBody long id, Project project) {
         countryService.update(id, project);
         return new ResponseEntity(project, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<String> deleteCountry(@RequestBody Project project) {
+    public ResponseEntity<String> deleteProject(@RequestBody Project project) {
         countryService.delete(project);
         return new ResponseEntity("User deleted", HttpStatus.OK);
     }
