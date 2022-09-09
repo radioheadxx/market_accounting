@@ -22,7 +22,7 @@ public class Currency {
     private Long id;
 
     @Column(name="is_accounting")
-    private Boolean isAccounting; //является ли валютой учета
+    private Boolean isAccounting;
 
     @NonNull
     @Column(name="short_name")
@@ -37,8 +37,8 @@ public class Currency {
 
     @NonNull
     @Column(name="letter_code")
-    private String letterCode; // буквенный код
+    private String letterCode;
 
     @Column(name="exchange_rate")
-    private Double exchangeRate; // курс
+    private Double exchangeRate;
 }
