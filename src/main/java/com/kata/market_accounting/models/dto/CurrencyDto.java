@@ -19,4 +19,14 @@ public class CurrencyDto {
     private String letterCode;
 
     private Double exchangeRate;
+
+    private boolean commonAccess;
+
+    private String dateEdit;
+
+    private String ownerDepartment;
+
+    private String ownerEmployee;
+
+    private String author;
 }

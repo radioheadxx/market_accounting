@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +15,7 @@ import java.util.Optional;
 @Service
 public class CurrencyServiceImpl implements CurrencyService {
     private final CurrencyRepository currencyRepo;
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
 
     @Autowired
     public CurrencyServiceImpl(CurrencyRepository currencyRepo) {
@@ -21,6 +24,9 @@ public class CurrencyServiceImpl implements CurrencyService {
 
     @Override
     public void create(Currency currency){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        String formattedDateTime = localDateTime.format(formatter);
+        currency.setDateEdit(formattedDateTime);
         currencyRepo.save(currency);
     }
 
@@ -37,6 +43,9 @@ public class CurrencyServiceImpl implements CurrencyService {
 
     @Override
     public void update(Currency currency) {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        String formattedDateTime = localDateTime.format(formatter);
+        currency.setDateEdit(formattedDateTime);
         currencyRepo.save(currency);
     }
 

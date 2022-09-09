@@ -41,4 +41,19 @@ public class Currency {
 
     @Column(name="exchange_rate")
     private Double exchangeRate;
+
+    @Column(name="common_access")
+    private boolean commonAccess;
+
+    @Column(name="date_edited")
+    private String dateEdit;
+
+    @Column(name="owner_department")
+    private String ownerDepartment;
+
+    @Column(name="owner_employee")
+    private String ownerEmployee;
+
+    @Column(name="author")
+    private String author;
 }
