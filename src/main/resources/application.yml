@@ -8,7 +8,7 @@ spring:
     database: POSTGRESQL
     show-sql: true
     hibernate:
-    ddl-auto: none
+      ddl-auto: none
   datasource:
     # имя базы данных - market
     url: jdbc:postgresql://localhost/market

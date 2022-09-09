@@ -1,9 +1,10 @@
 package com.kata.market_accounting.models.dto;
 
-import lombok.NonNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-
+@Data
+@NoArgsConstructor
 public class CurrencyDto {
     private Long id;
 
