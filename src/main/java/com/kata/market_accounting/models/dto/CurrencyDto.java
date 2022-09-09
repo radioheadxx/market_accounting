@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 public class CurrencyDto {
     private Long id;
 
-    private Boolean isAccounting; //является ли валютой учета
+    private Boolean isAccounting;
 
     private String shortName;
 
@@ -16,7 +16,7 @@ public class CurrencyDto {
 
     private String digitalCode;
 
-    private String letterCode; // буквенный код
+    private String letterCode;
 
-    private Double exchangeRate; // курс
+    private Double exchangeRate;
 }
