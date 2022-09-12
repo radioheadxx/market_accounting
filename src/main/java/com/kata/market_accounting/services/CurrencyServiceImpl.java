@@ -23,11 +23,11 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public void create(Currency currency){
+    public Currency create(Currency currency){
         LocalDateTime localDateTime = LocalDateTime.now();
         String formattedDateTime = localDateTime.format(formatter);
         currency.setDateEdit(formattedDateTime);
-        currencyRepo.save(currency);
+        return currencyRepo.save(currency);
     }
 
     @Override
@@ -42,11 +42,11 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public void update(Currency currency) {
+    public Currency update(Currency currency) {
         LocalDateTime localDateTime = LocalDateTime.now();
         String formattedDateTime = localDateTime.format(formatter);
         currency.setDateEdit(formattedDateTime);
-        currencyRepo.save(currency);
+        return currencyRepo.save(currency);
     }
 
     @Override
