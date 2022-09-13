@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "country", schema = "market")
+@Table(name = "project", schema = "market")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

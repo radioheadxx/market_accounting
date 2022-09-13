@@ -1,6 +1,8 @@
 package com.kata.market_accounting.rest;
 
+import com.kata.market_accounting.mappers.ProjectMapper;
 import com.kata.market_accounting.models.Project;
+import com.kata.market_accounting.models.dto.ProjectDTO;
 import com.kata.market_accounting.services.ProjectServiceImpl;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class ProjectRestController {
@@ -42,7 +45,7 @@ public class ProjectRestController {
     @PostMapping("/add")
     public ResponseEntity<Project> createProject(@RequestBody Project project) {
         countryService.save(project);
-        return new ResponseEntity(project, HttpStatus.CREATED);
+        return new ResponseEntity(ProjectMapper.INSTANCE.toDTO(project), HttpStatus.CREATED);
 
     }
 
@@ -53,7 +56,7 @@ public class ProjectRestController {
     @PutMapping("/edit")
     public ResponseEntity<Project> editProject(@RequestBody long id, Project project) {
         countryService.update(id, project);
-        return new ResponseEntity(project, HttpStatus.OK);
+        return new ResponseEntity(ProjectMapper.INSTANCE.toDTO(project), HttpStatus.OK);
     }
 
     @Operation(summary = "Delete project", tags = "project")
