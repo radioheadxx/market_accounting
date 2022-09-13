@@ -19,4 +19,10 @@ public class MarketAccountingApplication {
         SpringApplication.run(MarketAccountingApplication.class, args);
     }
 
+    @Bean
+    public Docket productApi() {
+        return new Docket(DocumentationType.SWAGGER_2).select()
+                .apis(RequestHandlerSelectors.basePackage("com.kata.market_accounting")).build();
+    }
+
 }

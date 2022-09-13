@@ -1,7 +1,7 @@
 package com.kata.market_accounting.models.dto;
 
 import lombok.Data;
-import org.mapstruct.Mapper;
+
 
 
 @Data
