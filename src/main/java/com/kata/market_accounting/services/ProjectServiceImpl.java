@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-
+@Transactional
 @Service
 public class ProjectServiceImpl implements ProjectService {
 
@@ -28,7 +28,6 @@ public class ProjectServiceImpl implements ProjectService {
         return projectRepository.findAll();
     }
 
-    @Transactional
     @Override
     public void save(Project project) {
         LocalDateTime localDateTime = LocalDateTime.now();
@@ -38,7 +37,6 @@ public class ProjectServiceImpl implements ProjectService {
         projectRepository.save(project);
     }
 
-    @Transactional
     @Override
     public void update(long id, Project project) {
         Project project1 = projectRepository.findById(id).get();
@@ -55,7 +53,6 @@ public class ProjectServiceImpl implements ProjectService {
         projectRepository.flush();
     }
 
-    @Transactional
     @Override
     public void delete(Project project) {
         projectRepository.delete(project);
