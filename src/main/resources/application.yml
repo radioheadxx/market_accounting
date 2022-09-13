@@ -5,10 +5,10 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
   jpa:
-      database: POSTGRESQL
-      show-sql: true
-      hibernate:
-        ddl-auto: none
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: none
   datasource:
     url: jdbc:postgresql://localhost/market
     username: postgres
