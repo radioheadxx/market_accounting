@@ -49,6 +49,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${org.mapstruct.version}</version>
+        </dependency>
+        <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
@@ -89,5 +94,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>
