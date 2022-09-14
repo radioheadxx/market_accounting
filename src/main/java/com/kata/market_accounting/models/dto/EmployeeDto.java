@@ -1,7 +1,11 @@
 package com.kata.market_accounting.models.dto;
 
 import com.kata.market_accounting.models.Role;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
 public class EmployeeDto {
     private Long id;
     private Boolean entrance;
