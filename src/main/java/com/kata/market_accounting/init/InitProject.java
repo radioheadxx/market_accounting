@@ -12,12 +12,12 @@ import java.time.format.DateTimeFormatter;
 
 
 @Component
-public class initUser implements ApplicationRunner {
+public class InitProject implements ApplicationRunner {
     private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
     private final ProjectRepository projectRepository;
 
     @Autowired
-    public initUser(ProjectRepository projectRepository) {
+    public InitProject(ProjectRepository projectRepository) {
         this.projectRepository = projectRepository;
     }
 
