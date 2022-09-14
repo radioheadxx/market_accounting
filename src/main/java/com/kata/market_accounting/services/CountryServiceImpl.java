@@ -46,8 +46,6 @@ public class CountryServiceImpl implements CountryService {
         String formattedDateTime = localDateTime.format(dtf);
         country1.setDate(formattedDateTime);
 
-        countryRepository.save(country);
-
         countryRepository.flush();
     }
 
