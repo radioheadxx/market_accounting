@@ -5,7 +5,7 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
   jpa:
-    database: POSTGRESQL
+    database: POSTGRES
     show-sql: true
     hibernate:
     ddl-auto: none
