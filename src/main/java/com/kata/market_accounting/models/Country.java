@@ -2,6 +2,7 @@ package com.kata.market_accounting.models;
 
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "countries", schema = "market")
 @Data
+@NoArgsConstructor
 public class Country {
 
     @Id
@@ -40,7 +42,5 @@ public class Country {
 
     @Column(name = "date")
     private String date;
-    public Country() {}
-
 }
 
