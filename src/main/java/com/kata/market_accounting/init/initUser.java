@@ -21,7 +21,6 @@ public class initUser implements ApplicationRunner {
         this.projectRepository = projectRepository;
     }
 
-
     public void run(ApplicationArguments args) {
         Project project = new Project();
 
