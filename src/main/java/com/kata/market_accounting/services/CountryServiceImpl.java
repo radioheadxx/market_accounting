@@ -35,16 +35,16 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public void update(long id, Country country) {
-        Country country1 = countryRepository.findById(id).get();
-        country1.setShortName(country.getShortName());
-        country1.setFullName(country.getFullName());
-        country1.setDigitalCode(country.getDigitalCode());
-        country1.setLetterCode1(country.getLetterCode1());
-        country1.setLetterCode2(country.getLetterCode2());
+        Country dbcountry = countryRepository.findById(id).get();
+        dbcountry.setShortName(country.getShortName());
+        dbcountry.setFullName(country.getFullName());
+        dbcountry.setDigitalCode(country.getDigitalCode());
+        dbcountry.setLetterCode1(country.getLetterCode1());
+        dbcountry.setLetterCode2(country.getLetterCode2());
 
         LocalDateTime localDateTime = LocalDateTime.now();
         String formattedDateTime = localDateTime.format(dtf);
-        country1.setDate(formattedDateTime);
+        dbcountry.setDate(formattedDateTime);
 
         countryRepository.flush();
     }
