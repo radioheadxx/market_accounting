@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @Api(tags = "Country controller")
@@ -29,19 +28,18 @@ public class CountryRestController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully retrieved")
     })
+
     @GetMapping("/list")
     public ResponseEntity<List<CountryDTO>> getCurrencies() {
-        List<CountryDTO> listDto = countryService.findAll().stream().map(CountryMapper.INSTANCE::toDTO).collect(Collectors.toList());
-        return new ResponseEntity<>(listDto, HttpStatus.OK);
+        return new ResponseEntity(countryService.getCurrencies(), HttpStatus.OK);
     }
-
 
     @Operation(summary = "Created new country", tags = "country")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully created")
     })
     @PostMapping("/add")
-    public ResponseEntity<Country> createCountry(@RequestBody Country country) {
+    public ResponseEntity<CountryDTO> createCountry(@RequestBody Country country) {
         countryService.save(country);
         return new ResponseEntity(CountryMapper.INSTANCE.toDTO(country), HttpStatus.CREATED);
     }
@@ -51,7 +49,7 @@ public class CountryRestController {
             @ApiResponse(code = 200, message = "successfully edited")
     })
     @PutMapping("/edit")
-    public ResponseEntity<Country> editCountry(@RequestBody long id, Country country) {
+    public ResponseEntity<CountryDTO> editCountry(@RequestBody long id, Country country) {
         countryService.update(id, country);
         return new ResponseEntity(CountryMapper.INSTANCE.toDTO(country), HttpStatus.OK);
     }

@@ -21,8 +21,7 @@ public class CountryServiceImpl implements CountryService {
         this.countryRepository = countryRepository;
     }
 
-    @Override
-    public List<Country> findAll() {
+    public List<Country> getCurrencies() {
         return countryRepository.findAll();
     }
 
