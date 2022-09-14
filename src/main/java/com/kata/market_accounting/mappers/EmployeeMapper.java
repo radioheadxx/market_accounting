@@ -6,7 +6,6 @@ import org.mapstruct.factory.Mappers;
 
 public interface EmployeeMapper {
 
-
     EmployeeMapper INSTANCE = Mappers.getMapper(EmployeeMapper.class);
 
     EmployeeDto toDto(Employee unit);

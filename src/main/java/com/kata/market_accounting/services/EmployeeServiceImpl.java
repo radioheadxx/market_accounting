@@ -35,7 +35,6 @@ public class EmployeeServiceImpl implements EmployeeService{
         String formattedDateTime = localDateTime.format(formatter);
         employee.setDateAndTime(formattedDateTime);
         return employeeRepository.save(employee);
-
     }
 
     @Override
@@ -60,12 +59,11 @@ public class EmployeeServiceImpl implements EmployeeService{
         dbEmployee.setDateAndTime(formattedDateTime);
         employeeRepository.flush();
         return dbEmployee;
-
     }
 
     @Override
     public void deleteEmployee(Employee employee) {
         employeeRepository.delete(employee);
-
     }
 }
+
