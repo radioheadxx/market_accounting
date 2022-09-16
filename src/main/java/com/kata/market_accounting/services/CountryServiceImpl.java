@@ -26,11 +26,12 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public void save(Country country) {
+    public Country save(Country country) {
         LocalDateTime localDateTime = LocalDateTime.now();
         String formattedDateTime = localDateTime.format(dtf);
         country.setDate(formattedDateTime);
         countryRepository.save(country);
+        return country;
     }
 
     @Override

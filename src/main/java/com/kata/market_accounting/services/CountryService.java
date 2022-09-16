@@ -8,7 +8,7 @@ public interface CountryService {
 
     List<Country> getCurrencies();
 
-    void save(Country country);
+    Country save(Country country);
 
     void delete(Country country);
 
