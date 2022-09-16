@@ -12,7 +12,7 @@ import java.util.List;
 public class SaleChannelServiceImpl implements SaleChannelService {
 
     private final SaleChannelRepository saleChannelRepository;
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy kk:mm");
 
     public SaleChannelServiceImpl(SaleChannelRepository saleChannelRepository) {
         this.saleChannelRepository = saleChannelRepository;
@@ -31,9 +31,7 @@ public class SaleChannelServiceImpl implements SaleChannelService {
 
     @Override
     public void createSaleChannel(SaleChannel saleChannel) {
-        LocalDateTime localDateTime = LocalDateTime.now();
-        String formattedDateTime = localDateTime.format(formatter);
-        saleChannel.setDateAndTime(formattedDateTime);
+        saleChannel.setDateAndTime(LocalDateTime.now().format(formatter));
         saleChannelRepository.save(saleChannel);
     }
 
@@ -46,12 +44,8 @@ public class SaleChannelServiceImpl implements SaleChannelService {
         dbSaleChannel.setGeneralAccess(saleChannel.getGeneralAccess());
         dbSaleChannel.setOwnerDepartment(saleChannel.getOwnerDepartment());
         dbSaleChannel.setOwnerEmployee(saleChannel.getOwnerEmployee());
+        dbSaleChannel.setDateAndTime(LocalDateTime.now().format(formatter));
         dbSaleChannel.setAuthor(saleChannel.getAuthor());
-
-        LocalDateTime localDateTime = LocalDateTime.now();
-        String formattedDateTime = localDateTime.format(formatter);
-        dbSaleChannel.setDateAndTime(formattedDateTime);
-
         saleChannelRepository.flush();
     }
 

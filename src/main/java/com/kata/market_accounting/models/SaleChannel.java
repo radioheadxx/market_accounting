@@ -1,6 +1,5 @@
 package com.kata.market_accounting.models;
 
-import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,18 +8,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @NoArgsConstructor
 @Entity
+@Table(name = "sale_channel", schema = "market")
 public class SaleChannel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @NotNull
     @Column(name="name")
     private String name;
-    @NotNull
     @Column(name="type")
     private String type;
     @Column(name="description")
