@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("/api/projects")
 @Api(tags = "Project controller")
 public class ProjectRestController {
     private final ProjectServiceImpl countryService;
