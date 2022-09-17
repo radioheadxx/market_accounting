@@ -44,3 +44,4 @@ public class InitEmployee implements ApplicationRunner {
         employeeRepository.save(employee);
     }
 }
+
