@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 
 
 @Transactional
@@ -21,8 +22,18 @@ public class CountryServiceImpl implements CountryService {
         this.countryRepository = countryRepository;
     }
 
-    public List<Country> getCurrencies() {
+    public List<Country> getCountries() {
         return countryRepository.findAll();
+    }
+
+    @Override
+    public Country getCountry(long id) {
+        Country country = null;
+        Optional<Country> optional = countryRepository.findById(id);
+        if (optional.isPresent()) {
+            country = optional.get();
+        }
+        return country;
     }
 
     @Override
@@ -51,8 +62,8 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public void delete(Country country) {
-        countryRepository.delete(country);
+    public void delete(long id) {
+        countryRepository.deleteById(id);
     }
 }
 

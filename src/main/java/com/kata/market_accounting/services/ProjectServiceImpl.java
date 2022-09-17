@@ -1,5 +1,6 @@
 package com.kata.market_accounting.services;
 
+import com.kata.market_accounting.models.Country;
 import com.kata.market_accounting.models.Project;
 import com.kata.market_accounting.repositories.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 
 @Transactional
 @Service
@@ -24,17 +26,28 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public List<Project> findAll() {
+    public List<Project> getProjects() {
         return projectRepository.findAll();
     }
 
     @Override
-    public void save(Project project) {
+    public Project getProject(long id) {
+        Project project = null;
+        Optional<Project> optional = projectRepository.findById(id);
+        if (optional.isPresent()) {
+            project = optional.get();
+        }
+        return project;
+    }
+
+    @Override
+    public Project save(Project project) {
         LocalDateTime localDateTime = LocalDateTime.now();
         String formattedDateTime = localDateTime.format(dtf);
         project.setDate(formattedDateTime);
 
         projectRepository.save(project);
+        return project;
     }
 
     @Override
@@ -54,8 +67,8 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void delete(Project project) {
-        projectRepository.delete(project);
+    public void delete(long id) {
+        projectRepository.deleteById(id);
     }
 }
 

@@ -39,7 +39,7 @@ public class ProjectRestController {
     })
     @GetMapping("/list")
     public List<Project> getProjectsList() {
-        return countryService.findAll();
+        return countryService.getProjects();
     }
 
     @Operation(summary = "Created new project", tags = "project")
@@ -68,8 +68,8 @@ public class ProjectRestController {
             @ApiResponse(code = 200, message = "successfully deleted")
     })
     @DeleteMapping("/delete")
-    public ResponseEntity<String> deleteProject(@RequestBody Project project) {
-        countryService.delete(project);
+    public ResponseEntity<String> deleteProject(@RequestBody long id) {
+        countryService.delete(id);
         return new ResponseEntity("Project deleted", HttpStatus.OK);
     }
 }

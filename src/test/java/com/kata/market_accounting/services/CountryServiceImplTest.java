@@ -2,51 +2,57 @@ package com.kata.market_accounting.services;
 
 import com.kata.market_accounting.models.Country;
 import com.kata.market_accounting.repositories.CountryRepository;
-import org.hamcrest.CoreMatchers;
-import org.junit.Assert;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
 class CountryServiceImplTest {
 
-    private Country country;
-    @Mock
-    CountryRepository countryRepository;
     @Autowired
     private CountryService countryService;
 
-    @BeforeEach
-    public void completion() {
-        country = new Country(3L,"Russia","Russian Federation", (byte) 1,"RU","RUS",true);
-    }
-
     @Test
     void save() {
-        Country saveCountry = countryService.save(country);
-        System.out.println(saveCountry);
-        assertThat(saveCountry).isNotNull();
-        Assert.assertTrue(country.isAccess());
+        Country savedCountry = countryService.save(new Country(1L, "Russia", "Russian Federation", (byte) 1, "RU", "RUS", true));
+        assertThat(savedCountry.getId()).isGreaterThan(0);
+        System.out.println(savedCountry);
     }
 
     @Test
     void getCurrencies() {
-        System.out.println(countryService.getCurrencies());
+        List<Country> countries = countryService.getCountries();
+        assertThat(countries).size().isGreaterThan(0);
     }
+
     @Test
     void update() {
+        Country country1 = new Country(2L, "Germany", "Germany Republic", (byte) 2, "GE", "GER", true);
+        country1.setDigitalCode((byte) 24);
+        countryService.save(country1);
+        countryService.update(1, country1);
+
+        assertThat(country1.getDigitalCode()).isEqualTo((byte) 24);
+        System.out.println(country1);
+
     }
-//
-//    @Test
-//    void delete() {
-//    }
+
+    @Test
+    void delete() {
+        Country country1 = new Country(2L, "France", "France Republic", (byte) 2, "FR", "FRA", true);
+        countryService.save(country1);
+        countryService.delete(2L);
+        Country deletedCountry = countryService.getCountry(2L);
+        assertThat(deletedCountry).isNull();
+    }
 }
