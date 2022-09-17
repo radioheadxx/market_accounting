@@ -7,9 +7,11 @@ import lombok.NonNull;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
-@Entity()
+@Entity
+@Table(name = "contractors", schema = "market")
 @Data
 @NoArgsConstructor
 public class Contractor {
@@ -33,7 +35,7 @@ public class Contractor {
 
     @Column(name = "fact_address")
     private String factAddress;
-    private String comment;
+    private String comments;
     private String groups;
 
     @Column(name = "contractor_type")
@@ -54,9 +56,11 @@ public class Contractor {
 
     @Column(name = "is_common")
     private boolean isCommon;
-    private String ownerDept;
 
     @Column(name = "owner_dept")
+    private String ownerDept;
+
+    @Column(name = "owner_employee")
     private String ownerEmployee;
 
     @Column(name = "first_sale")
