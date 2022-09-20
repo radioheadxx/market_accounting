@@ -1,6 +1,5 @@
 package com.kata.market_accounting.services;
 
-import com.kata.market_accounting.models.Country;
 import com.kata.market_accounting.models.Project;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,13 +10,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
 class ProjectServiceImplTest {
 
     @Autowired
     private ProjectServiceImpl projectService;
+
 
     @Test
     void save() {
