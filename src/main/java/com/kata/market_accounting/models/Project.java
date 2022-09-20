@@ -38,5 +38,11 @@ public class Project {
     @Column(name = "date")
     private String date;
 
-
+    public Project(Long id, String name, Long code, String description, boolean access) {
+        this.id = id;
+        this.name = name;
+        this.code = code;
+        this.description = description;
+        this.access = access;
+    }
 }
