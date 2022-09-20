@@ -10,8 +10,6 @@ import java.time.LocalDateTime;
 public class ContractorDto {
     private Long id;
 
-    @Column
-    @NonNull
     private String name;
     private String code;
     private LocalDateTime createdAt;
