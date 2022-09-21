@@ -33,7 +33,7 @@ public class CountryRestController {
 
     @GetMapping("/list")
     public ResponseEntity<List<CountryDTO>> getCurrencies() {
-        return new ResponseEntity(countryService.getCurrencies(), HttpStatus.OK);
+        return new ResponseEntity(countryService.getCountries(), HttpStatus.OK);
     }
 
     @Operation(summary = "Created new country", tags = "country")
@@ -61,8 +61,8 @@ public class CountryRestController {
             @ApiResponse(code = 200, message = "successfully deleted")
     })
     @DeleteMapping("/delete")
-    public ResponseEntity<String> deleteCountry(@RequestBody Country country) {
-        countryService.delete(country);
+    public ResponseEntity<String> deleteCountry(@RequestBody long id) {
+        countryService.delete(id);
         return new ResponseEntity("Country deleted", HttpStatus.OK);
     }
 }
