@@ -40,7 +40,6 @@ class WarehousesServiceImplTest {
 
         assertThat(warehouses.getCod()).isEqualTo(24L);
         System.out.println(warehouses);
-
     }
 
     @Test

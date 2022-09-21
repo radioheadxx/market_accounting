@@ -48,3 +48,4 @@ public class WarehousesServiceImpl implements WarehousesService{
         warehousesRepository.deleteById(id);
     }
 }
+

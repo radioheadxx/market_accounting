@@ -29,7 +29,6 @@ public class Warehouses {
     @Column(name = "access")
     private Boolean access;
 
-
     public Warehouses(Long id, String name, Long cod, String address, boolean access) {
         this.id = id;
         this.name = name;
