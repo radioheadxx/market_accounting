@@ -12,10 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Data
-@NoArgsConstructor
-@Entity(name = "warehouses")
+@Entity
 @Table(name = "warehouses", schema = "market")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Warehouses {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
