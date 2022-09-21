@@ -9,7 +9,7 @@ public interface WarehousesService {
 
     List<Warehouses> getAllWarehouses();
 
-    Warehouses updateWarehouses(Long id, Warehouses warehouses);
+    Warehouses updateWarehouses(Warehouses warehouses);
 
     Warehouses getWarehouses(long id);
 
