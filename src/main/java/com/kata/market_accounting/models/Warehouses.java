@@ -28,4 +28,13 @@ public class Warehouses {
     private String address;
     @Column(name = "access")
     private Boolean access;
+
+
+    public Warehouses(Long id, String name, Long cod, String address, boolean access) {
+        this.id = id;
+        this.name = name;
+        this.cod = cod;
+        this.address = address;
+        this.access = access;
+    }
 }

@@ -33,8 +33,8 @@ public class WarehousesServiceImpl implements WarehousesService{
         return warehousesRepository.findAll();
     }
     @Override
-    public Warehouses updateWarehouses(Warehouses warehouses) {
-        Warehouses dbWarehouses = warehousesRepository.getReferenceById(warehouses.getId());
+    public Warehouses updateWarehouses(Long id, Warehouses warehouses) {
+        Warehouses dbWarehouses = warehousesRepository.findById(id).get();
         dbWarehouses.setName(warehouses.getName());
         dbWarehouses.setCod(warehouses.getCod());
         dbWarehouses.setAddress(warehouses.getAddress());
@@ -44,7 +44,7 @@ public class WarehousesServiceImpl implements WarehousesService{
     }
 
     @Override
-    public void deleteWarehouses(Warehouses warehouses) {
-        warehousesRepository.delete(warehouses);
+    public void deleteWarehouses(Long id) {
+        warehousesRepository.deleteById(id);
     }
 }
