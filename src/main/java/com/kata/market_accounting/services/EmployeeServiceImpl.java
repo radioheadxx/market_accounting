@@ -39,31 +39,16 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Employee updateEmployee(Employee employee) {
-        Employee dbEmployee = employeeRepository.getReferenceById(employee.getId());
-        dbEmployee.setEntrance(employee.getEntrance());
-        dbEmployee.setLastName(employee.getLastName());
-        dbEmployee.setName(employee.getName());
-        dbEmployee.setMiddleName(employee.getMiddleName());
-        dbEmployee.setEmail(employee.getEmail());
-        dbEmployee.setTelephone(employee.getTelephone());
-        dbEmployee.setJobTitle(employee.getJobTitle());
-        dbEmployee.setInn(employee.getInn());
-        dbEmployee.setLogin(employee.getLogin());
-        dbEmployee.setDescription(employee.getDescription());
-        dbEmployee.setGeneralAccess(employee.getGeneralAccess());
-        dbEmployee.setRoles(employee.getRoles());
-        dbEmployee.setAuthor(employee.getAuthor());
-
         LocalDateTime localDateTime = LocalDateTime.now();
         String formattedDateTime = localDateTime.format(formatter);
-        dbEmployee.setDateAndTime(formattedDateTime);
+        employee.setDateAndTime(formattedDateTime);
         employeeRepository.flush();
-        return dbEmployee;
+        return employeeRepository.save(employee);
     }
 
     @Override
-    public void deleteEmployee(Employee employee) {
-        employeeRepository.delete(employee);
+    public void deleteEmployee(Long id) {
+        employeeRepository.deleteById(id);
     }
 }
 

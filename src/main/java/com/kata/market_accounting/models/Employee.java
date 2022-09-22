@@ -1,6 +1,8 @@
 package com.kata.market_accounting.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -49,4 +51,6 @@ public class Employee {
     @ManyToOne(targetEntity = Role.class)
     private Role roles;
 
+    public Employee(String s, String test_employee_two, String tst2) {
+    }
 }
