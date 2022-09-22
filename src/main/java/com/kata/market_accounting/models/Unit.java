@@ -45,4 +45,11 @@ public class Unit {
     private String changeTime;
     @Column(name = "who_chaged")
     private String whoChanged;
+
+    public Unit(Long id, String fullName, String shortName, int digitalCode) {
+        this.id = id;
+        this.fullName = fullName;
+        this.shortName = shortName;
+        this.digitalCode = digitalCode;
+    }
 }
