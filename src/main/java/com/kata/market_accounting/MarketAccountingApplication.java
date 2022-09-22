@@ -1,5 +1,6 @@
 package com.kata.market_accounting;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -10,6 +11,11 @@ public class MarketAccountingApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MarketAccountingApplication.class, args);
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 }
 
