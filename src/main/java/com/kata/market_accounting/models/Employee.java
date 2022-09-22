@@ -10,9 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Data
 @Entity
-@Table (name = "Employee")
+@Table(name = "employee", schema = "market")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employee {
 
     @Id

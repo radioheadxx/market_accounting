@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table
+@Table(name = "units", schema = "market")
 public class Unit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

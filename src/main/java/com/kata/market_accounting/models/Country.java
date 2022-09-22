@@ -42,5 +42,16 @@ public class Country {
 
     @Column(name = "date")
     private String date;
+
+    public Country(Long id, String shortName, String fullName, byte digitalCode, String letterCode1, String letterCode2, boolean access) {
+        this.id = id;
+        this.shortName = shortName;
+        this.fullName = fullName;
+        this.digitalCode = digitalCode;
+        this.letterCode1 = letterCode1;
+        this.letterCode2 = letterCode2;
+        this.access = access;
+    }
+
 }
 

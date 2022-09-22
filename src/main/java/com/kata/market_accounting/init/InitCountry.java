@@ -30,7 +30,7 @@ public class InitCountry implements ApplicationRunner {
         country.setDigitalCode((byte) 2);
         country.setLetterCode1("RU");
         country.setLetterCode2("RUS");
-        country.setAccess(true);
+        country.setAccess(false);
         LocalDateTime localDateTime = LocalDateTime.now();
         String formattedDateTime = localDateTime.format(dtf);
         country.setDate(formattedDateTime);;
