@@ -71,8 +71,8 @@ public class EmployeeRestController {
     @ApiResponses({
             @ApiResponse(code = 200, message = "Employee successfully deleted")
     })
-    public ResponseEntity<String> deleteEmployee(@RequestBody Employee employee){
-        employeeService.deleteEmployee(employee);
+    public ResponseEntity<String> deleteEmployee(@RequestBody Long id){
+        employeeService.deleteEmployee(id);
         return  new ResponseEntity("User deleted", HttpStatus.OK);
     }
 }
