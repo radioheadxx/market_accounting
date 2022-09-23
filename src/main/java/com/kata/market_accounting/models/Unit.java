@@ -24,26 +24,26 @@ import javax.persistence.Table;
 public class Unit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column
     private Long id;
-    @Column(name = "full_name")
+    @Column
     private String fullName;
     @NotNull
-    @Column(name = "short_name")
+    @Column
     private String shortName;
-    @Column(name = "digital_code")
+    @Column
     private int digitalCode;
     @Column(name = "type")
     private String type;
-    @Column(name = "general_access")
+    @Column
     private boolean generalAccess;
-    @Column(name = "owner_department")
+    @Column
     private String ownerDepartment;
-    @Column(name = "owner_employee")
+    @Column
     private String ownerEmployee;
-    @Column(name = "change_time")
+    @Column
     private String changeTime;
-    @Column(name = "who_chaged")
+    @Column
     private String whoChanged;
 
     public Unit(Long id, String fullName, String shortName, int digitalCode) {

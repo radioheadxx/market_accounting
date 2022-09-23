@@ -1,4 +1,4 @@
-package com.kata.market_accounting.exception;
+package com.kata.market_accounting.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

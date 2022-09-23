@@ -1,7 +1,7 @@
 package com.kata.market_accounting.rest;
 
 import com.kata.market_accounting.models.dto.LegalEntityDTO;
-import com.kata.market_accounting.exception.LegalEntityException;
+import com.kata.market_accounting.exceptions.LegalEntityException;
 import com.kata.market_accounting.services.LegalEntityService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
