@@ -32,6 +32,8 @@ public class SaleChannelServiceImpl implements SaleChannelService {
     @Override
     public void createSaleChannel(SaleChannel saleChannel) {
         saleChannel.setDateAndTime(LocalDateTime.now().format(formatter));
+        saleChannel.setGeneralAccess(false);
+        saleChannel.setOwnerDepartment("Основной");
         saleChannelRepository.save(saleChannel);
     }
 

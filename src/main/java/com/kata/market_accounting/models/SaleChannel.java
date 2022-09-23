@@ -25,7 +25,7 @@ public class SaleChannel {
     @Column(name="description")
     private String description;
     @Column(name="general_access")
-    private String generalAccess;
+    private Boolean generalAccess;
     @Column(name="owner_department")
     private String ownerDepartment;
     @Column(name="owner_employee")
