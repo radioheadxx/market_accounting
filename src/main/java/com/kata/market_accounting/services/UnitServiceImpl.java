@@ -1,6 +1,6 @@
 package com.kata.market_accounting.services;
 
-import com.kata.market_accounting.exception.EmptyInputException;
+import com.kata.market_accounting.exceptions.EmptyInputException;
 import com.kata.market_accounting.models.Unit;
 import com.kata.market_accounting.repositories.UnitRepository;
 import org.springframework.stereotype.Service;

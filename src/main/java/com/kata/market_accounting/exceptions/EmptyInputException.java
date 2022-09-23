@@ -1,4 +1,4 @@
-package com.kata.market_accounting.exception;
+package com.kata.market_accounting.exceptions;
 
 public class EmptyInputException extends RuntimeException {
     public EmptyInputException(String message) {
