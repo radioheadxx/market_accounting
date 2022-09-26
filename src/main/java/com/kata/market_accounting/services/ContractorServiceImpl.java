@@ -1,7 +1,10 @@
 package com.kata.market_accounting.services;
 
+import com.kata.market_accounting.exception.EmptyInputException;
 import com.kata.market_accounting.models.Contractor;
+import com.kata.market_accounting.models.ContractorStatus;
 import com.kata.market_accounting.repositories.ContractorRepository;
+import com.kata.market_accounting.repositories.ContractorStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +28,7 @@ public class ContractorServiceImpl implements ContractorService{
     }
 
     @Override
-    public void create(Contractor contractor) {
+    public Contractor create(Contractor contractor) {
         if (contractor.getName() == null) {
             throw new EmptyInputException("Название не может быть пустым!");
         }
@@ -38,6 +41,7 @@ public class ContractorServiceImpl implements ContractorService{
         statusRepository.save(status);
         contractor.setStatus(status);
         contractorRepository.save(contractor);
+        return contractor;
     }
 
     @Override
