@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/unit")
@@ -58,7 +57,7 @@ public class UnitRestController {
         return new ResponseEntity<>(unitMapper.domainToDTO(unitService.updateUnit(unit)), HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ApiOperation(value = "Delete unit by ID")
     public void delete(@PathVariable("id") Long id) {
         unitService.deleteUnit(id);

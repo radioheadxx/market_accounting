@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 public class AuditDto {
     Long id;
     String time;
-    Long image;
     String employee;
     String event;
 }
