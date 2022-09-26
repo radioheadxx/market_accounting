@@ -1,5 +1,6 @@
 package com.kata.market_accounting.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 @Table(name = "legal_entities")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class LegalEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

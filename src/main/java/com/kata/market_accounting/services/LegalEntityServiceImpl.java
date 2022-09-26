@@ -29,12 +29,13 @@ public class LegalEntityServiceImpl implements LegalEntityService {
     }
 
     @Override
-    public void createLegalEntity(LegalEntityDTO legalEntityDTO) {
+    public boolean createLegalEntity(LegalEntityDTO legalEntityDTO) {
         if (legalEntityDTO.getShortName() == null || legalEntityDTO.getEmail() == null
                 || legalEntityDTO.getPublicAccess() == null) {
                 throw new LegalEntityException("Field 'short_name', 'email' or 'public_access' is not filled!");
         }
         legalEntityRepository.save(legalEntityMapper.DTOToDomain(legalEntityDTO));
+        return true;
     }
 
     @Override
