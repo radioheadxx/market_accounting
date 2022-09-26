@@ -2,8 +2,8 @@ package com.kata.market_accounting.services;
 
 import com.kata.market_accounting.models.SaleChannel;
 import com.kata.market_accounting.repositories.SaleChannelRepository;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -77,14 +77,12 @@ class SaleChannelServiceImplTest {
     }
 
     @Test
-    @Disabled
     void updateSaleChannel() {
-        SaleChannel freshSaleChannel = new SaleChannel();
-        freshSaleChannel.setId(1L);
-        freshSaleChannel.setName("Yandex");
-        freshSaleChannel.setType("Post service");
-        freshSaleChannel.setDescription("NEW description");
-        freshSaleChannel.setDateAndTime(LocalDateTime.now().format(formatter));
+        saleChannel.setDescription("updated description");
+
+        SaleChannel updatedSaleChannel = underTest.updateSaleChannel(saleChannel);
+
+        Assertions.assertThat(updatedSaleChannel.getDescription()).isEqualTo("updated description");
     }
 
     @Test
