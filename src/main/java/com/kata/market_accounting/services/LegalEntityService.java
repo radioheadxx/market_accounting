@@ -11,7 +11,7 @@ public interface LegalEntityService {
 
     LegalEntityDTO getLegalEntityById(Long id);
 
-    void createLegalEntity(LegalEntityDTO legalEntityDTO);
+    boolean createLegalEntity(LegalEntityDTO legalEntityDTO);
 
     void deleteLegalEntityById(Long id);
 

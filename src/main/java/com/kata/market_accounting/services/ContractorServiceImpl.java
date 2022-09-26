@@ -1,6 +1,6 @@
 package com.kata.market_accounting.services;
 
-import com.kata.market_accounting.exceptions.EmptyInputException;
+import com.kata.market_accounting.exception.EmptyInputException;
 import com.kata.market_accounting.models.Contractor;
 import com.kata.market_accounting.models.ContractorStatus;
 import com.kata.market_accounting.repositories.ContractorRepository;
