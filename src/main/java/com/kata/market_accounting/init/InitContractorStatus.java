@@ -1,5 +1,7 @@
 package com.kata.market_accounting.init;
 
+import com.kata.market_accounting.models.ContractorStatus;
+import com.kata.market_accounting.repositories.ContractorStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
