@@ -20,8 +20,6 @@ public class Audit {
     @Column
     String time;
     @Column
-    Long image;
-    @Column
     String employee;
     @Column
     String event;

@@ -12,7 +12,7 @@ import java.util.List;
 public class SaleChannelServiceImpl implements SaleChannelService {
 
     private final SaleChannelRepository saleChannelRepository;
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy kk:mm");
 
     public SaleChannelServiceImpl(SaleChannelRepository saleChannelRepository) {
         this.saleChannelRepository = saleChannelRepository;
@@ -31,28 +31,16 @@ public class SaleChannelServiceImpl implements SaleChannelService {
 
     @Override
     public void createSaleChannel(SaleChannel saleChannel) {
-        LocalDateTime localDateTime = LocalDateTime.now();
-        String formattedDateTime = localDateTime.format(formatter);
-        saleChannel.setDateAndTime(formattedDateTime);
+        saleChannel.setDateAndTime(LocalDateTime.now().format(formatter));
+        saleChannel.setGeneralAccess(false);
+        saleChannel.setOwnerDepartment("Основной");
         saleChannelRepository.save(saleChannel);
     }
 
     @Override
-    public void updateSaleChannel(SaleChannel saleChannel) {
-        SaleChannel dbSaleChannel = saleChannelRepository.getReferenceById(saleChannel.getId());
-        dbSaleChannel.setName(saleChannel.getName());
-        dbSaleChannel.setType(saleChannel.getType());
-        dbSaleChannel.setDescription(saleChannel.getDescription());
-        dbSaleChannel.setGeneralAccess(saleChannel.getGeneralAccess());
-        dbSaleChannel.setOwnerDepartment(saleChannel.getOwnerDepartment());
-        dbSaleChannel.setOwnerEmployee(saleChannel.getOwnerEmployee());
-        dbSaleChannel.setAuthor(saleChannel.getAuthor());
-
-        LocalDateTime localDateTime = LocalDateTime.now();
-        String formattedDateTime = localDateTime.format(formatter);
-        dbSaleChannel.setDateAndTime(formattedDateTime);
-
-        saleChannelRepository.flush();
+    public SaleChannel updateSaleChannel(SaleChannel saleChannel) {
+        saleChannel.setDateAndTime(LocalDateTime.now().format(formatter));
+        return saleChannel;
     }
 
     @Override
