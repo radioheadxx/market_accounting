@@ -28,7 +28,7 @@ public class ContractorServiceImpl implements ContractorService{
     }
 
     @Override
-    public void create(Contractor contractor) {
+    public Contractor create(Contractor contractor) {
         if (contractor.getName() == null) {
             throw new EmptyInputException("Название не может быть пустым!");
         }
@@ -41,6 +41,7 @@ public class ContractorServiceImpl implements ContractorService{
         statusRepository.save(status);
         contractor.setStatus(status);
         contractorRepository.save(contractor);
+        return contractor;
     }
 
     @Override
