@@ -85,8 +85,8 @@ public class WarehousesRestController {
             @ApiResponse(code = 300, message = "Make a choice"),
             @ApiResponse(code = 400, message = "Invalid request")
     })
-    public ResponseEntity<String> deleteWarehouses(@RequestBody Warehouses warehouses){
-        warehousesService.deleteWarehouses(warehouses);
+    public ResponseEntity<String> deleteWarehouses(@RequestBody Long id){
+        warehousesService.deleteWarehouses(id);
         return  new ResponseEntity("User deleted", HttpStatus.OK);
     }
 }

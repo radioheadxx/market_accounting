@@ -10,7 +10,7 @@ public class SaleChannelDto {
     private String name;
     private String type;
     private String description;
-    private String generalAccess;
+    private Boolean generalAccess;
     private String ownerDepartment;
     private String ownerEmployee;
     private String dateAndTime;
