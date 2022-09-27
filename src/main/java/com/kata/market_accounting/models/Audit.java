@@ -23,4 +23,10 @@ public class Audit {
     String employee;
     @Column
     String event;
+
+    public Audit(Long id, String employee, String event) {
+        this.id = id;
+        this.employee = employee;
+        this.event = event;
+    }
 }
