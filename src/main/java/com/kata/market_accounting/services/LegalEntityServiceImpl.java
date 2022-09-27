@@ -1,6 +1,6 @@
 package com.kata.market_accounting.services;
 
-import com.kata.market_accounting.exception.LegalEntityException;
+import com.kata.market_accounting.exceptions.LegalEntityException;
 import com.kata.market_accounting.mappers.LegalEntityMapper;
 import com.kata.market_accounting.models.dto.LegalEntityDTO;
 import com.kata.market_accounting.models.LegalEntity;
