@@ -1,6 +1,8 @@
 package com.kata.market_accounting.rest;
 
+import com.kata.market_accounting.mappers.SaleChannelMapper;
 import com.kata.market_accounting.models.SaleChannel;
+import com.kata.market_accounting.models.dto.SaleChannelDto;
 import com.kata.market_accounting.services.SaleChannelService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,7 +24,7 @@ import java.util.List;
 
 @RestController
 @Api(tags = "Sale channel controller")
-@RequestMapping("/api/sale_channels")
+@RequestMapping("/api/sale_channel")
 public class SaleChannelRestController {
 
     private final SaleChannelService saleChannelService;
@@ -37,8 +39,10 @@ public class SaleChannelRestController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully retrieved")
     })
-    public ResponseEntity<List<SaleChannel>> listSaleChannels() {
-        return ResponseEntity.ok(saleChannelService.listSaleChannels());
+    public ResponseEntity<List<SaleChannelDto>> listSaleChannels() {
+        List<SaleChannelDto> dtoList = saleChannelService.listSaleChannels().stream()
+                .map(SaleChannelMapper.INSTANCE::toDto).toList();
+        return new ResponseEntity<>(dtoList, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -47,8 +51,9 @@ public class SaleChannelRestController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully retrieved")
     })
-    public ResponseEntity<SaleChannel> getSaleChannel(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(saleChannelService.getSaleChannel(id));
+    public ResponseEntity<SaleChannelDto> getSaleChannel(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(
+                SaleChannelMapper.INSTANCE.toDto(saleChannelService.getSaleChannel(id)));
     }
 
     @PostMapping
@@ -57,9 +62,10 @@ public class SaleChannelRestController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Sale channel successfully created")
     })
-    public ResponseEntity<Void> createSaleChannel(@RequestBody SaleChannel saleChannel) {
+    public ResponseEntity<String> createSaleChannel(@RequestBody SaleChannel saleChannel) {
         saleChannelService.createSaleChannel(saleChannel);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(
+                "Sale channel successfully created", HttpStatus.CREATED);
     }
 
     @PutMapping
@@ -68,9 +74,10 @@ public class SaleChannelRestController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Sale channel successfully edited")
     })
-    public ResponseEntity<Void> updateSaleChannel(@RequestBody SaleChannel saleChannel) {
+    public ResponseEntity<String> updateSaleChannel(@RequestBody SaleChannel saleChannel) {
         saleChannelService.updateSaleChannel(saleChannel);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(
+                "Sale channel successfully edited", HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
@@ -79,9 +86,10 @@ public class SaleChannelRestController {
     @ApiResponses({
             @ApiResponse(code = 200, message = "Sale channel successfully deleted")
     })
-    public ResponseEntity<Void> deleteSaleChannel(@PathVariable("id") @ApiParam(
+    public ResponseEntity<String> deleteSaleChannel(@PathVariable("id") @ApiParam(
                     name = "id", value = "Sale channel ID", example = "1") Long id) {
         saleChannelService.deleteSaleChannel(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(
+                "Sale channel successfully deleted", HttpStatus.OK);
     }
 }

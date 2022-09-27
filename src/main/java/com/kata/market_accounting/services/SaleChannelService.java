@@ -9,6 +9,6 @@ public interface SaleChannelService {
     List<SaleChannel> listSaleChannels();
     SaleChannel getSaleChannel(long id);
     void createSaleChannel(SaleChannel saleChannel);
-    void updateSaleChannel(SaleChannel saleChannel);
+    SaleChannel updateSaleChannel(SaleChannel saleChannel);
     void deleteSaleChannel(long id);
 }
