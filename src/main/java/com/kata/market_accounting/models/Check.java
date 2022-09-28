@@ -9,7 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import java.math.BigDecimal;
@@ -30,20 +32,23 @@ public class Check {
     private Long number;
     @Column(name = "time")
     private String time;
-    @ManyToMany(targetEntity = Contractor.class)
-    private Set<Contractor> roles;
+    @ManyToOne
+    @JoinColumn(name = "contractor_id")
+    private Contractor contractor;
     @Column(name = "contractor_check")
     private String contractorCheck;
     @Column(name = "organization")
     private String organization;
     @Column(name = "organization_check")
     private String organizationCheck;
-    @ManyToMany(targetEntity = Warehouses.class)
-    private Set<Warehouses> warehouses;
+    @ManyToOne
+    @JoinColumn(name = "currency_id")
+    private Warehouses warehouses;
     @Column(name = "Summ")
     private BigDecimal Summ;
-    @ManyToMany(targetEntity = Currency.class)
-    private Set<Currency> Currency;
+    @ManyToOne
+    @JoinColumn(name = "currency_id")
+    private Currency currency;
     @Column(name = "payment_date")
     private String paymentDate;
     @Column(name = "paid")
@@ -52,12 +57,14 @@ public class Check {
     private String notPaid;
     @Column(name = "shipped")
     private String shipped;
-    @ManyToMany(targetEntity = Project.class)
-    private Set<Project> project;
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
     @Column(name = "contract")
     private String contract;
-    @ManyToMany(targetEntity = SaleChannel.class)
-    private Set<SaleChannel> SaleChannel;
+    @ManyToOne
+    @JoinColumn(name = "sale_channel_id")
+    private SaleChannel SaleChannel;
     @Column(name = "general_access")
     private Boolean generalAccess;
     @Column(name = "sent")
