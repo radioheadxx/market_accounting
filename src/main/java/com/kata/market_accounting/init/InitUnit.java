@@ -1,7 +1,6 @@
 package com.kata.market_accounting.init;
 
 import com.kata.market_accounting.models.Unit;
-import com.kata.market_accounting.repositories.UnitRepository;
 import com.kata.market_accounting.services.UnitService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

@@ -2,6 +2,7 @@ package com.kata.market_accounting.services;
 
 import com.kata.market_accounting.models.Warehouses;
 import com.kata.market_accounting.repositories.WarehousesRepository;
+import lombok.NonNull;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -32,19 +33,15 @@ public class WarehousesServiceImpl implements WarehousesService{
     public List<Warehouses> getAllWarehouses() {
         return warehousesRepository.findAll();
     }
+
     @Override
     public Warehouses updateWarehouses(Warehouses warehouses) {
-        Warehouses dbWarehouses = warehousesRepository.getReferenceById(warehouses.getId());
-        dbWarehouses.setName(warehouses.getName());
-        dbWarehouses.setCod(warehouses.getCod());
-        dbWarehouses.setAddress(warehouses.getAddress());
-        dbWarehouses.setAccess(warehouses.getAccess());
-        warehousesRepository.flush();
-        return dbWarehouses;
+        return warehousesRepository.save(warehouses);
     }
 
     @Override
-    public void deleteWarehouses(Warehouses warehouses) {
-        warehousesRepository.delete(warehouses);
+    public void deleteWarehouses(Long id) {
+        warehousesRepository.deleteById(id);
     }
 }
+

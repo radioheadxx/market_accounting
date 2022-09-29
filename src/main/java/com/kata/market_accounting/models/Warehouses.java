@@ -1,8 +1,10 @@
 package com.kata.market_accounting.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -21,6 +23,7 @@ public class Warehouses {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NonNull
     @Column(name = "name")
     private String name;
     @Column(name = "cod")
@@ -29,4 +32,7 @@ public class Warehouses {
     private String address;
     @Column(name = "access")
     private Boolean access;
+
+    public Warehouses(String s, String test_warehouses_one, String tst1) {
+    }
 }

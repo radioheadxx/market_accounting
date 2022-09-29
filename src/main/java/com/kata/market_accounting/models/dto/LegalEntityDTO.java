@@ -1,11 +1,13 @@
 package com.kata.market_accounting.models.dto;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class LegalEntityDTO {
     @ApiModelProperty(notes = "Legal entity ID", example = "1", required = true)
     private Long id;

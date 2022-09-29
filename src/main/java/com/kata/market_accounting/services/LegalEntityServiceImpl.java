@@ -1,6 +1,6 @@
 package com.kata.market_accounting.services;
 
-import com.kata.market_accounting.exception.LegalEntityException;
+import com.kata.market_accounting.exceptions.LegalEntityException;
 import com.kata.market_accounting.mappers.LegalEntityMapper;
 import com.kata.market_accounting.models.dto.LegalEntityDTO;
 import com.kata.market_accounting.models.LegalEntity;
@@ -29,12 +29,13 @@ public class LegalEntityServiceImpl implements LegalEntityService {
     }
 
     @Override
-    public void createLegalEntity(LegalEntityDTO legalEntityDTO) {
+    public boolean createLegalEntity(LegalEntityDTO legalEntityDTO) {
         if (legalEntityDTO.getShortName() == null || legalEntityDTO.getEmail() == null
                 || legalEntityDTO.getPublicAccess() == null) {
                 throw new LegalEntityException("Field 'short_name', 'email' or 'public_access' is not filled!");
         }
         legalEntityRepository.save(legalEntityMapper.DTOToDomain(legalEntityDTO));
+        return true;
     }
 
     @Override
