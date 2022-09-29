@@ -9,8 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Entity
 @Table(name = "employee", schema = "market")
@@ -48,8 +50,8 @@ public class Employee {
     private String dateAndTime;
     @Column(name = "author")
     private String author;
-    @ManyToOne(targetEntity = Role.class)
-    private Role roles;
+    @ManyToMany(targetEntity = Role.class)
+    private Set<Role> roles;
 
     public Employee(String s, String test_employee_two, String tst2) {
     }
